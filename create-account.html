@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta - TroincLab</title>
+    <link rel="stylesheet" href="../css/layouts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="../img/file.png" alt="Company Logo" class="logo">
+        </div>
+        <div class="form-container">
+            <h2><strong>Crear Cuenta </strong></h2>
+            <form id="createAccountForm">
+                <div class="input-group">
+                    <label for="username">Nombre de usuario</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirmPassword">Confirmar contraseña</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+                <button type="submit">Crear cuenta</button>
+            </form>
+            <div class="additional-options">
+                <a href="index.htm">Volver al inicio de sesión</a>
+            </div>
+        </div>
+    </div>
+    <script src="../js/create-account.js"></script>
+</body>
+</html>

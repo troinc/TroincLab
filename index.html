@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organiza tu tiempo en TroincLab</title>
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <p><h1>TroincLab</h1></p>
+    </div>
+    <ul class="sidebar-menu">
+      <li><a href="#" onclick="showSection('inicio')"><i class="fas fa-home"></i> Inicio</a></li>
+      <li><a href="#" onclick="showSection('diasSemanales')"><i class="fas fa-calendar-week"></i> Días Semanales</a></li>
+      <li><a href="#" onclick="showSection('ajustes')"><i class="fas fa-cog"></i> Ajustes</a></li>
+      <li><a href="#" id="logoutButton"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+    </ul>
+  </aside>
+
+  <main class="main-content">
+    <div id="inicio" class="content">
+      <h2>Bienvenido a Organiza tu tiempo</h2>
+      <p class="subtitle">Descubre cómo nuestra plataforma puede ayudarte a maximizar tu productividad y alcanzar tus metas.</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Persona escribiendo en un cuaderno, planificando tareas">
+          <div class="feature-card-content">
+            <h3>Organización Semanal</h3>
+            <p>Planifica tus tareas por día de la semana con nuestra interfaz intuitiva y atractiva.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Persona meditando, concentrada en sus objetivos">
+          <div class="feature-card-content">
+            <h3>Enfoque y Concentración</h3>
+            <p>Mantén tu mente clara y enfocada en tus objetivos con nuestro sistema de organización.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img src="https://images.unsplash.com/photo-1455849318743-b2233052fcff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Tablero con notas adhesivas, representando una lista de tareas">
+          <div class="feature-card-content">
+            <h3>Gestión de Tareas</h3>
+            <p>Añade, edita y elimina tareas fácilmente. Marca tus logros y mantén un seguimiento de tu progreso.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="diasSemanales" class="content">
+      <h2>Mi Lista Semanal de Tareas</h2>
+      <div class="container" id="taskList"></div>
+    </div>
+
+    <div id="ajustes" class="content">
+      <h2>Ajustes</h2>
+      <div class="settings-container">
+        <div class="setting-item">
+          <h3>Tema</h3>
+          <select id="themeSelect">
+            <option value="dark">Oscuro</option>
+            <option value="light">Claro</option>
+          </select>
+        </div>
+        <div class="setting-item">
+          <h3>Color personalizado</h3>
+          <input type="color" id="customColor" value="#6c5ce7">
+        </div>
+        <div class="setting-item">
+          <h3>Notificaciones</h3>
+          <label class="switch">
+            <input type="checkbox" id="notificationsToggle">
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="settings-links">
+        <a href="#" onclick="showSettingsInfo('profile')">Perfil de usuario</a>
+        <a href="#" onclick="showSettingsInfo('privacy')">Privacidad</a>
+        <a href="#" onclick="showSettingsInfo('services')">Servicios</a>
+        <a href="#" onclick="showSettingsInfo('terms')">Términos y condiciones</a>
+      </div>
+      <div id="settingsInfo" class="settings-info">
+        <div id="profileSettings" style="display: none;">
+          <h3>Perfil de Usuario</h3>
+          <form id="profileForm" class="profile-form">
+            <div class="input-group">
+              <label for="username">Nombre de usuario:</label>
+              <input type="text" id="username" name="username" value="usuario_ejemplo">
+            </div>
+            <div class="input-group">
+              <label for="email">Correo electrónico:</label>
+              <input type="email" id="email" name="email" value="usuario@ejemplo.com" readonly>
+            </div>
+            <div class="input-group">
+              <label for="password">Contraseña:</label>
+              <input type="password" id="password" name="password" value="********" readonly>
+            </div>
+            <button type="submit">Aplicar cambios</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/app.js"></script>
+  <script src="../js/tasks.js"></script>
+  <script src="../js/settings.js"></script>
+  <script src="../js/logout.js"></script>
+  <script src="../js/chat.js"></script>
+
+  <!-- Añade esto justo antes del cierre del tag </body> -->
+  <div id="assistanceIcon">
+    <img src="../img/img.png" alt="Asistente IA">
+  </div>
+
+  <div id="chatWindow" style="display: none;">
+    <div id="chatHeader">
+      <span>Asistente IA</span>
+      <button id="closeChatBtn">&times;</button>
+    </div>
+    <div id="chatMessages"></div>
+    <div id="chatInput">
+      <input type="text" id="userInput" placeholder="Escribe tu mensaje...">
+      <button id="sendMessageBtn">Enviar</button>
+    </div>
+  </div>
+</body>
+</html>
